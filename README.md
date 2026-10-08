@@ -2,7 +2,7 @@
 
 A hands-on **Git and GitHub project** demonstrating version-control best practices commonly used in DevOps environments.
 
-This project focuses on structured branching, meaningful commits, Pull Requests, GitHub Issues, release tagging, `.gitignore`, and Markdown documentation.
+This project focuses on structured branching, meaningful commits, Pull Requests, GitHub Issues, release tagging, `.gitignore`, Markdown documentation, release history, and repository maintenance.
 
 A small Linux system-information Bash script is used as the practical feature developed through the Git workflow.
 
@@ -16,30 +16,28 @@ A small Linux system-information Bash script is used as the practical feature de
 
 ## Project Objective
 
-The objective of this project is to manage a DevOps project using Git best practices and demonstrate a clear version-control workflow.
-
-The project covers:
+The objective of this project is to manage a DevOps project using Git best practices and demonstrate a clear, traceable version-control workflow.
 
 ```text
 Repository Setup
-      ¿
+      â†“
 main Branch
-      ¿
+      â†“
 dev Branch
-      ¿
-Feature Branch
-      ¿
+      â†“
+Feature / Fix Branch
+      â†“
 Meaningful Commits
-      ¿
+      â†“
 Pull Request
-      ¿
+      â†“
 Merge into dev
-      ¿
+      â†“
 Pull Request
-      ¿
+      â†“
 Merge into main
-      ¿
-Release Tag
+      â†“
+Release / Maintenance
 ```
 
 ---
@@ -51,16 +49,19 @@ Release Tag
 - `main` stable branch
 - `dev` integration branch
 - Task-specific `feature/*` branches
+- Maintenance-specific `fix/*` branches
 - Meaningful commit messages
 - Pull Request based merging
 - GitHub Issue tracking
+- Issue-to-PR traceability
 - Git release tagging
 - `.gitignore`
 - Markdown documentation
 - Linux Bash scripting
 - Release history documentation
-- Additional project evidence
-- Git workflow architecture documentation
+- Project evidence
+- Branching architecture documentation
+- Post-release maintenance workflow
 
 ---
 
@@ -79,21 +80,21 @@ Release Tag
 
 ```text
 devops-git-workflow/
-¿
-¿¿¿ docs/
-¿   ¿¿¿ images/
-¿   ¿   ¿¿¿ devops-git-workflow-architecture.png
-¿   ¿   ¿¿¿ Additonal-Project-Image-Evidences 
-¿   ¿
-¿   ¿¿¿ branching-strategy.md
-¿   ¿¿¿ git-commands.md
-¿
-¿¿¿ scripts/
-¿   ¿¿¿ system-info.sh
-¿
-¿¿¿ .gitignore
-¿¿¿ CHANGELOG.md
-¿¿¿ README.md
+|
+|-- docs/
+|   |-- images/
+|   |   |-- devops-git-workflow-architecture.png
+|   |   `-- Additonal-Project-Evidence/
+|   |
+|   |-- branching-strategy.md
+|   `-- git-commands.md
+|
+|-- scripts/
+|   `-- system-info.sh
+|
+|-- .gitignore
+|-- CHANGELOG.md
+`-- README.md
 ```
 
 ---
@@ -103,25 +104,36 @@ devops-git-workflow/
 The project follows this branching model:
 
 ```text
-feature/*
-    ¿
-Pull Request
-    ¿
-   dev
-    ¿
-Pull Request
-    ¿
-  main
-    ¿
- Release Tag
+feature/* or fix/*
+        â†“
+   Pull Request
+        â†“
+       dev
+        â†“
+   Pull Request
+        â†“
+       main
 ```
 
-The three primary branch types are:
+For stable release work:
+
+```text
+feature/*
+   â†“
+  dev
+   â†“
+ main
+   â†“
+Release Tag
+```
+
+The branch types used in this project are:
 
 ```text
 main
 dev
 feature/*
+fix/*
 ```
 
 ---
@@ -136,6 +148,7 @@ Responsibilities:
 - Receives changes through Pull Requests
 - Used as the source for release tags
 - Avoids direct feature development
+- Receives completed maintenance fixes
 
 ---
 
@@ -146,9 +159,10 @@ The `dev` branch acts as the integration branch.
 Responsibilities:
 
 - Receives completed feature branches
+- Receives maintenance fixes
 - Combines development work
 - Provides a staging point before `main`
-- Acts as the source branch for release promotion
+- Acts as the source branch for promotion into `main`
 
 ---
 
@@ -156,7 +170,7 @@ Responsibilities:
 
 Feature branches are created from the latest `dev` branch.
 
-Examples used during this project:
+Examples used in this project:
 
 ```text
 feature/system-info
@@ -169,25 +183,43 @@ Each feature branch focuses on one specific task.
 
 ---
 
-# Feature Workflow
+## `fix/*`
 
-The general workflow is:
+Fix branches are used for maintenance work discovered after previous changes have already been merged.
+
+Current example:
+
+```text
+fix/readme-encoding-architecture
+```
+
+This branch is associated with:
+
+```text
+GitHub Issue #10
+```
+
+---
+
+# Feature Development Workflow
+
+The normal feature workflow is:
 
 ```text
 dev
- ¿
+ â†“
 Create feature branch
- ¿
+ â†“
 Make changes
- ¿
+ â†“
 git add
- ¿
+ â†“
 git commit
- ¿
+ â†“
 git push
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
 ```
 
@@ -195,17 +227,23 @@ After integrated changes are ready:
 
 ```text
 dev
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 main
- ¿
-Release Tag
+```
+
+For a release:
+
+```text
+main
+ â†“
+Git Tag
 ```
 
 ---
 
-# Workflow 1 ¿ System Information Feature
+# Workflow 1 â€” System Information Feature
 
 The first practical feature was developed in:
 
@@ -217,25 +255,25 @@ Workflow:
 
 ```text
 dev
- ¿
+ â†“
 feature/system-info
- ¿
+ â†“
 Develop system-info.sh
- ¿
+ â†“
 Test on Ubuntu Linux
- ¿
+ â†“
 Commit
- ¿
+ â†“
 Push
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 main
- ¿
+ â†“
 v1.0.0
 ```
 
@@ -243,7 +281,7 @@ This became the first stable release.
 
 ---
 
-# Workflow 2 ¿ Documentation
+# Workflow 2 â€” Documentation
 
 The Git documentation was developed through:
 
@@ -255,21 +293,21 @@ Workflow:
 
 ```text
 dev
- ¿
+ â†“
 feature/documentation
- ¿
+ â†“
 Add branching-strategy.md
- ¿
+ â†“
 Add git-commands.md
- ¿
+ â†“
 Update CHANGELOG.md
- ¿
+ â†“
 Commit
- ¿
+ â†“
 Push
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
 ```
 
@@ -277,9 +315,9 @@ This demonstrated that documentation changes can follow the same version-control
 
 ---
 
-# Workflow 3 ¿ README Finalization
+# Workflow 3 â€” README Finalization
 
-The final README and architecture image were developed through:
+The README and architecture image finalization work was developed through:
 
 ```text
 feature/readme-finalization
@@ -289,25 +327,25 @@ Workflow:
 
 ```text
 dev
- ¿
+ â†“
 feature/readme-finalization
- ¿
+ â†“
 Finalize README.md
- ¿
+ â†“
 Add Git workflow architecture image
- ¿
+ â†“
 Commit
- ¿
+ â†“
 Push
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 main
- ¿
+ â†“
 v1.0.1
 ```
 
@@ -346,15 +384,15 @@ The first stable release followed:
 
 ```text
 feature/system-info
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        dev
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.0
 ```
 
@@ -372,15 +410,15 @@ The README finalization release followed:
 
 ```text
 feature/readme-finalization
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        dev
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.1
 ```
 
@@ -393,7 +431,7 @@ Documentation and README finalization
 This release focused on:
 
 - Final README presentation
-- Git workflow architecture image
+- Git workflow architecture
 - Project documentation improvements
 - Additional project evidence
 - Release-ready repository presentation
@@ -402,61 +440,119 @@ This release focused on:
 
 # Post-Release Documentation Alignment
 
-After `v1.0.1` was created, some project documentation still referenced only the earlier `v1.0.0` release.
+After `v1.0.1` was created, some documentation still referenced only the earlier project state.
 
-The remaining documentation work is tracked through:
+This work was tracked through:
 
 ```text
 GitHub Issue #7
 ```
 
-Issue title:
+Issue:
 
 ```text
 docs: update project documentation for v1.0.1 release with Additional Project Evidence
 ```
 
-A dedicated branch was created:
+The work was completed through:
 
 ```text
 feature/v1.0.1-documentation
 ```
 
-Current documentation workflow:
+Workflow:
 
 ```text
 Issue #7
-   ¿
+   â†“
 feature/v1.0.1-documentation
-   ¿
+   â†“
 Update CHANGELOG.md
-   ¿
+   â†“
 Update branching-strategy.md
-   ¿
+   â†“
 Update git-commands.md
-   ¿
+   â†“
 Update README.md
-   ¿
-Add / verify project evidence
-   ¿
-Commit
-   ¿
-Push
-   ¿
+   â†“
+Add project evidence
+   â†“
 Pull Request
-   ¿
+   â†“
 dev
+   â†“
+Pull Request
+   â†“
+main
+   â†“
+Issue #7 Closed
 ```
 
-This work documents the existing `v1.0.1` release.
+This work documented the existing `v1.0.1` release.
 
-It does **not** move or recreate the existing `v1.0.1` tag.
+It did **not** move or recreate the `v1.0.1` tag.
+
+---
+
+# Current Maintenance â€” Issue #10
+
+A later README review identified an encoding problem and an outdated branching architecture image.
+
+The maintenance work is tracked through:
+
+```text
+GitHub Issue #10
+```
+
+Issue title:
+
+```text
+fix: correct encoding and update branching architecture image
+```
+
+The fix branch is:
+
+```text
+fix/readme-encoding-architecture
+```
+
+Current workflow:
+
+```text
+Issue #10
+   â†“
+fix/readme-encoding-architecture
+   â†“
+Correct README encoding
+   â†“
+Preserve manual README updates
+   â†“
+Correct repository structure rendering
+   â†“
+Update branching architecture image
+   â†“
+Commit
+   â†“
+Push
+   â†“
+Pull Request
+   â†“
+dev
+   â†“
+Pull Request
+   â†“
+main
+   â†“
+Issue #10 Closed
+```
+
+This maintenance work does **not** change or recreate the existing `v1.0.1` release tag.
 
 ---
 
 # Pull Request Workflow
 
-## Feature ¿ Dev
+## Feature â†’ Dev
 
 Example:
 
@@ -469,22 +565,40 @@ Meaning:
 
 ```text
 Take changes FROM feature/system-info
-              ¿
+              â†“
 Merge changes INTO dev
-```
-
-For the current documentation update:
-
-```text
-base: dev
-compare: feature/v1.0.1-documentation
 ```
 
 ---
 
-## Dev ¿ Main
+## Fix â†’ Dev
 
-After integrated work is ready:
+For Issue #10:
+
+```text
+base: dev
+compare: fix/readme-encoding-architecture
+```
+
+Meaning:
+
+```text
+Take changes FROM fix/readme-encoding-architecture
+              â†“
+Merge changes INTO dev
+```
+
+The first PR can reference:
+
+```text
+Refs #10
+```
+
+---
+
+## Dev â†’ Main
+
+After the integrated work is ready:
 
 ```text
 base: main
@@ -495,31 +609,64 @@ Meaning:
 
 ```text
 Take changes FROM dev
-              ¿
+              â†“
 Merge changes INTO main
 ```
 
-Pull Requests provide a visible and traceable merge history on GitHub.
+For the final Issue #10 PR, the description can include:
+
+```text
+Closes #10
+```
+
+This allows GitHub to automatically close the issue when the change reaches `main`.
 
 ---
 
 # GitHub Issue Tracking
 
-GitHub Issues are used to track project work that requires additional changes.
+GitHub Issues are used to track project work and maintenance.
 
-The current documentation alignment is tracked using:
-
-```text
-Issue #7
-```
-
-The related Pull Request can include:
+Completed issue:
 
 ```text
-Closes #7
+Issue #7 - Closed
 ```
 
-This links the Pull Request with the tracked work.
+Current maintenance issue:
+
+```text
+Issue #10
+```
+
+Issue #10 tracks:
+
+- README encoding correction
+- Removal of corrupted rendering
+- Preservation of manual README changes
+- Repository structure formatting
+- Updated branching architecture image
+- Final verification on `main`
+
+Issue-to-branch relationship:
+
+```text
+Issue #10
+   â†“
+fix/readme-encoding-architecture
+```
+
+Issue-to-PR relationship:
+
+```text
+fix/readme-encoding-architecture
+        â†“
+      dev
+        â†“
+      main
+        â†“
+Closes #10
+```
 
 ---
 
@@ -570,7 +717,7 @@ echo "System information collected"
 echo "======================================"
 ```
 
-Make the script executable:
+Make it executable:
 
 ```bash
 chmod +x scripts/system-info.sh
@@ -609,28 +756,25 @@ Examples used during the project:
 
 ```text
 docs: add initial project README
-
 chore: add project gitignore
-
 docs: add project changelog
-
 feat: add system information script
-
 chore: make system info script executable
-
 docs: document Git branching strategy
-
 docs: add Git command reference
-
 docs: update project changelog
-
 docs: finalize README with Git workflow architecture
-
 docs: document v1.0.1 release
-
 docs: update branching strategy for v1.0.1
-
 docs: update Git command reference for v1.0.1
+docs: update README for v1.0.1 release
+docs: add project evidence for v1.0.1
+```
+
+For the current maintenance fix, a suitable commit is:
+
+```text
+fix: correct README encoding and update architecture image
 ```
 
 ---
@@ -697,6 +841,8 @@ git push origin v1.0.1
 
 Published release tags should normally be treated as stable historical references.
 
+Issue #10 does not require recreating or moving `v1.0.1`.
+
 ---
 
 # `.gitignore`
@@ -749,15 +895,15 @@ docs/
 
 Documents:
 
-- `main` branch
-- `dev` branch
-- `feature/*` branches
+- `main`
+- `dev`
+- `feature/*`
 - Feature development workflow
 - Pull Request workflow
-- `v1.0.0` release
-- `v1.0.1` release
+- `v1.0.0`
+- `v1.0.1`
 - Issue `#7`
-- Current documentation alignment workflow
+- Documentation alignment workflow
 
 ---
 
@@ -818,6 +964,12 @@ Create a feature branch:
 
 ```bash
 git switch -c feature/<task-name>
+```
+
+Create a fix branch:
+
+```bash
+git switch -c fix/<task-name>
 ```
 
 Stage files:
@@ -911,13 +1063,13 @@ Resolution flow:
 
 ```text
 Open conflicting file
-        ¿
+        â†“
 Choose correct content
-        ¿
+        â†“
 Remove conflict markers
-        ¿
+        â†“
 git add <file>
-        ¿
+        â†“
 git commit
 ```
 
@@ -949,25 +1101,26 @@ Git stash is useful when switching branches while unfinished changes exist.
 
 # Additional Project Evidence
 
-Project evidence can be stored under:
+Project evidence is stored under:
 
 ```text
 docs/images/
 ```
 
-The architecture image is stored as:
+The architecture image is:
 
 ```text
 docs/images/devops-git-workflow-architecture.png
 ```
 
-Useful additional evidence includes:
+Additional evidence includes:
 
 ```text
 GitHub branch structure
-Feature ¿ Dev Pull Request
-Dev ¿ Main Pull Request
+Feature -> Dev Pull Request
+Dev -> Main Pull Request
 GitHub Issue #7
+GitHub Issue #10
 v1.0.0 tag
 v1.0.1 tag
 Commit history
@@ -975,6 +1128,22 @@ System information script execution
 Repository structure
 ```
 
+Additional evidence stored under:
+
+```text
+docs/images/Additonal-Project-Image-Evidences/
+```
+
+Screenshots should avoid exposing:
+
+```text
+Access tokens
+Passwords
+Private keys
+AWS credentials
+Sensitive environment variables
+Personal machine information
+```
 
 ---
 
@@ -985,7 +1154,8 @@ This project demonstrates:
 - Keeping `main` stable
 - Using `dev` as an integration branch
 - Creating task-specific feature branches
-- Creating feature branches from the latest `dev`
+- Creating maintenance-specific fix branches
+- Creating branches from the latest `dev`
 - Writing meaningful commit messages
 - Keeping commits focused
 - Using Pull Requests
@@ -994,48 +1164,61 @@ This project demonstrates:
 - Using `.gitignore`
 - Avoiding secrets in Git
 - Using release tags
+- Treating published tags as historical references
 - Maintaining release history
 - Maintaining Markdown documentation
 - Testing Bash scripts on Linux
-- Managing Git work across Windows and Ubuntu environments
+- Managing Git work across Windows and Ubuntu
+- Performing post-release repository maintenance
 
 ---
 
-# Project Workflow Summary
-
-The complete project history can be represented as:
+# Complete Project Workflow
 
 ```text
 feature/system-info
-        ¿
+        â†“
        dev
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.0
 
 
 feature/documentation
-        ¿
+        â†“
        dev
 
 
 feature/readme-finalization
-        ¿
+        â†“
        dev
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.1
 
 
 Issue #7
-   ¿
+   â†“
 feature/v1.0.1-documentation
-        ¿
+        â†“
        dev
-        ¿
+        â†“
        main
+        â†“
+Issue #7 Closed
+
+
+Issue #10
+   â†“
+fix/readme-encoding-architecture
+        â†“
+       dev
+        â†“
+       main
+        â†“
+Issue #10 Closed
 ```
 
 ---
@@ -1050,10 +1233,12 @@ This project helped me practice:
 - Branch creation
 - Branch switching
 - Feature-based development
+- Maintenance fix branches
 - `main` and `dev` branch strategy
 - Meaningful commit messages
 - Pull Requests
 - GitHub Issues
+- Issue-to-PR linking
 - Branch merging
 - Git tags
 - Git stash
@@ -1065,6 +1250,7 @@ This project helped me practice:
 - Managing Git across Windows and Ubuntu Linux
 - Release documentation
 - Version-control workflow planning
+- Post-release maintenance
 
 ---
 
@@ -1099,19 +1285,39 @@ Release message:
 Documentation and README finalization
 ```
 
-Current documentation maintenance:
+Completed documentation issue:
 
 ```text
-Issue #7
+Issue #7 - Closed
 ```
 
-Development branch:
+Current maintenance issue:
 
 ```text
-feature/v1.0.1-documentation
+Issue #10
 ```
 
-The documentation update aligns the repository documentation with the already-created `v1.0.1` release.
+Current fix branch:
+
+```text
+fix/readme-encoding-architecture
+```
+
+Current maintenance workflow:
+
+```text
+Issue #10
+   â†“
+fix/readme-encoding-architecture
+   â†“
+dev
+   â†“
+main
+   â†“
+Issue #10 Closed
+```
+
+The current maintenance work corrects README encoding and updates the branching architecture image without modifying the existing `v1.0.1` release tag.
 
 ---
 
@@ -1125,6 +1331,7 @@ GitHub
 main
 dev
 feature/*
+fix/*
 Commits
 Pull Requests
 GitHub Issues
@@ -1134,20 +1341,34 @@ Markdown
 Bash
 ```
 
-The primary workflow is:
+The primary development workflow is:
 
 ```text
 feature/*
-   ¿
+   â†“
 Pull Request
-   ¿
+   â†“
   dev
-   ¿
+   â†“
 Pull Request
-   ¿
+   â†“
  main
-   ¿
+   â†“
 release
+```
+
+The maintenance workflow is:
+
+```text
+Issue
+ â†“
+fix/*
+ â†“
+dev
+ â†“
+main
+ â†“
+Issue Closed
 ```
 
 The latest release tag is:
