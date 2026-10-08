@@ -309,7 +309,7 @@ git add docs/git-commands.md
 ```bash
 git add .
 ```
-[O
+
 This stages all changed and untracked files in the current directory.
 
 Use this carefully to avoid accidentally staging sensitive or unnecessary files.
@@ -493,7 +493,7 @@ git log -1 --oneline
 
 ---
 
-[I# 23. Pull Request Workflow
+# 23. Pull Request Workflow
 
 Pull Requests are created through GitHub.
 
@@ -501,7 +501,7 @@ They are used to review and merge changes instead of directly modifying importan
 
 ---
 
-## Feature  Dev
+## Feature → Dev
 
 For feature development:
 
@@ -521,13 +521,13 @@ Meaning:
 
 ```text
 feature/system-info
-        
+        ↓
        dev
 ```
 
 ---
 
-## Dev  Main
+## Dev → Main
 
 After the integrated work is ready:
 
@@ -540,7 +540,7 @@ Meaning:
 
 ```text
 dev
- 
+ ↓
 main
 ```
 
@@ -552,23 +552,23 @@ The system information script followed this workflow:
 
 ```text
 dev
- 
+ ↓
 feature/system-info
- 
+ ↓
 Develop script
- 
+ ↓
 Commit
- 
+ ↓
 Push
- 
+ ↓
 Pull Request
- 
+ ↓
 dev
- 
+ ↓
 Pull Request
- 
+ ↓
 main
- 
+ ↓
 v1.0.0
 ```
 
@@ -586,21 +586,21 @@ Workflow:
 
 ```text
 dev
- 
+ ↓
 feature/documentation
- 
+ ↓
 branching-strategy.md
- 
+ ↓
 git-commands.md
- 
+ ↓
 CHANGELOG.md
- 
+ ↓
 Commit
- 
+ ↓
 Push
- 
+ ↓
 Pull Request
- 
+ ↓
 dev
 ```
 
@@ -618,25 +618,25 @@ Workflow:
 
 ```text
 dev
- 
+ ↓
 feature/readme-finalization
- 
+ ↓
 Finalize README.md
- 
+ ↓
 Add architecture image
- 
+ ↓
 Commit
- 
+ ↓
 Push
- 
+ ↓
 Pull Request
- 
+ ↓
 dev
- 
+ ↓
 Pull Request
- 
+ ↓
 main
- 
+ ↓
 v1.0.1
 ```
 
@@ -674,17 +674,17 @@ Current workflow:
 
 ```text
 dev
- 
+ ↓
 feature/v1.0.1-documentation
- 
+ ↓
 Update documentation
- 
+ ↓
 Commit
- 
+ ↓
 Push
- 
+ ↓
 Pull Request
- 
+ ↓
 dev
 ```
 
@@ -1265,9 +1265,9 @@ Workflow:
 
 ```text
 feature/v1.0.1-documentation
-              
+              ↓
          Pull Request
-              
+              ↓
              dev
 ```
 
@@ -1286,11 +1286,11 @@ Workflow:
 
 ```text
 feature/v1.0.1-documentation
-              
+              ↓
              dev
-              
+              ↓
          Pull Request
-              
+              ↓
              main
 ```
 
@@ -1304,34 +1304,34 @@ It does not require moving or recreating the `v1.0.1` tag.
 
 ```text
 feature/system-info
-        
+        ↓
        dev
-        
+        ↓
        main
-        
+        ↓
      v1.0.0
 
 
 feature/documentation
-        
+        ↓
        dev
 
 
 feature/readme-finalization
-        
+        ↓
        dev
-        
+        ↓
        main
-        
+        ↓
      v1.0.1
 
 
 Issue #7
-   
+   ↓
 feature/v1.0.1-documentation
-        
+        ↓
        dev
-        
+        ↓
        main
 ```
 
@@ -1435,15 +1435,15 @@ The primary workflow is:
 
 ```text
 feature/*
-   
+   ↓
 Pull Request
-   
+   ↓
   dev
-   
+   ↓
 Pull Request
-   
+   ↓
  main
-   
+   ↓
 release
 ```
 

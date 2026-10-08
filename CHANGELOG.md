@@ -43,15 +43,15 @@ The README finalization followed this workflow:
 
 ```text
 feature/readme-finalization
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        dev
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.1
 ```
 
@@ -98,15 +98,15 @@ The first feature followed this workflow:
 
 ```text
 feature/system-info
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        dev
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.0
 ```
 
