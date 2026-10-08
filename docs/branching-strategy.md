@@ -12,11 +12,11 @@ This project uses three main types of branches:
 
 ```text
 main
-  ¿
-  ¿
+  â†‘
+  â”‚
  dev
-  ¿
-  ¿
+  â†‘
+  â”‚
 feature/*
 ```
 
@@ -45,9 +45,9 @@ Typical promotion flow:
 
 ```text
 dev
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 main
 ```
 
@@ -72,9 +72,9 @@ Example:
 
 ```text
 feature/system-info
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        dev
 ```
 
@@ -82,9 +82,9 @@ After the changes in `dev` are reviewed and considered stable, another Pull Requ
 
 ```text
 dev
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 main
 ```
 
@@ -123,19 +123,19 @@ The general workflow is:
 
 ```text
 dev
- ¿
+ â†“
 Create feature branch
- ¿
+ â†“
 Make changes
- ¿
+ â†“
 Stage changes
- ¿
+ â†“
 Commit changes
- ¿
+ â†“
 Push feature branch
- ¿
+ â†“
 Create Pull Request
- ¿
+ â†“
 Merge feature into dev
 ```
 
@@ -149,7 +149,7 @@ This creates a clear and traceable GitHub history.
 
 ---
 
-## Feature ¿ Dev
+## Feature â†’ Dev
 
 For feature development:
 
@@ -169,13 +169,13 @@ Meaning:
 
 ```text
 Take changes FROM feature/system-info
-              ¿
+              â†“
 Merge changes INTO dev
 ```
 
 ---
 
-## Dev ¿ Main
+## Dev â†’ Main
 
 After integration and review:
 
@@ -188,13 +188,13 @@ Meaning:
 
 ```text
 Take changes FROM dev
-              ¿
+              â†“
 Merge changes INTO main
 ```
 
 ---
 
-# Workflow 1 ¿ System Information Feature
+# Workflow 1 â€” System Information Feature
 
 The first feature developed in this project was the Linux system information script.
 
@@ -208,19 +208,19 @@ The workflow was:
 
 ```text
 dev
- ¿
+ â†“
 feature/system-info
- ¿
+ â†“
 Add system-info.sh
- ¿
+ â†“
 Test on Ubuntu Linux
- ¿
+ â†“
 Commit
- ¿
+ â†“
 Push
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
 ```
 
@@ -228,15 +228,15 @@ The completed feature was then promoted to `main`:
 
 ```text
 feature/system-info
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        dev
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.0
 ```
 
@@ -260,17 +260,17 @@ The release represented the first completed feature workflow:
 
 ```text
 feature/system-info
-        ¿
+        â†“
        dev
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.0
 ```
 
 ---
 
-# Workflow 2 ¿ Documentation Feature
+# Workflow 2 â€” Documentation Feature
 
 Detailed Git documentation was created in a separate branch:
 
@@ -282,21 +282,21 @@ The documentation workflow was:
 
 ```text
 dev
- ¿
+ â†“
 feature/documentation
- ¿
+ â†“
 Add branching-strategy.md
- ¿
+ â†“
 Add git-commands.md
- ¿
+ â†“
 Update CHANGELOG.md
- ¿
+ â†“
 Commit changes
- ¿
+ â†“
 Push branch
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
 ```
 
@@ -304,7 +304,7 @@ This demonstrated that documentation changes can follow the same branching workf
 
 ---
 
-# Workflow 3 ¿ README Finalization
+# Workflow 3 â€” README Finalization
 
 The final project README and architecture image were developed using:
 
@@ -316,25 +316,25 @@ The workflow was:
 
 ```text
 dev
- ¿
+ â†“
 feature/readme-finalization
- ¿
+ â†“
 Finalize README.md
- ¿
+ â†“
 Add architecture image
- ¿
+ â†“
 Commit
- ¿
+ â†“
 Push
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 main
- ¿
+ â†“
 v1.0.1
 ```
 
@@ -342,15 +342,15 @@ The complete release flow was:
 
 ```text
 feature/readme-finalization
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        dev
-        ¿
+        â†“
    Pull Request
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.1
 ```
 
@@ -382,17 +382,17 @@ Release flow:
 
 ```text
 feature/readme-finalization
-        ¿
+        â†“
        dev
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.1
 ```
 
 ---
 
-# Workflow 4 ¿ v1.0.1 Documentation Update
+# Workflow 4 â€” v1.0.1 Documentation Update
 
 After creating the `v1.0.1` release, some documentation still referenced only `v1.0.0`.
 
@@ -418,23 +418,23 @@ The workflow is:
 
 ```text
 dev
- ¿
+ â†“
 feature/v1.0.1-documentation
- ¿
+ â†“
 Update CHANGELOG.md
- ¿
+ â†“
 Update branching-strategy.md
- ¿
+ â†“
 Update git-commands.md
- ¿
+ â†“
 Verify README release information
- ¿
+ â†“
 Commit changes
- ¿
+ â†“
 Push branch
- ¿
+ â†“
 Pull Request
- ¿
+ â†“
 dev
 ```
 
@@ -454,30 +454,30 @@ The complete project workflow can be represented as:
 
 ```text
 feature/system-info
-        ¿
+        â†“
        dev
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.0
 
 
 feature/documentation
-        ¿
+        â†“
        dev
 
 
 feature/readme-finalization
-        ¿
+        â†“
        dev
-        ¿
+        â†“
        main
-        ¿
+        â†“
      v1.0.1
 
 
 feature/v1.0.1-documentation
-        ¿
+        â†“
        dev
 ```
 
@@ -569,11 +569,11 @@ Release workflow:
 
 ```text
 feature/*
-   ¿
+   â†“
   dev
-   ¿
+   â†“
  main
-   ¿
+   â†“
 Git Tag
 ```
 
@@ -600,23 +600,23 @@ This workflow provides several advantages:
 
 ```text
                     FEATURE DEVELOPMENT
-                           ¿
-                           ¿
+                           â”‚
+                           â–¼
                        feature/*
-                           ¿
-                           ¿
+                           â”‚
+                           â–¼
                      Pull Request
-                           ¿
-                           ¿
+                           â”‚
+                           â–¼
                           dev
-                           ¿
-                           ¿
+                           â”‚
+                           â–¼
                      Pull Request
-                           ¿
-                           ¿
+                           â”‚
+                           â–¼
                           main
-                           ¿
-                           ¿
+                           â”‚
+                           â–¼
                       Release Tag
 ```
 
@@ -624,12 +624,12 @@ Current releases:
 
 ```text
 v1.0.0
-   ¿
+   â†“
 First stable release
 
 
 v1.0.1
-   ¿
+   â†“
 Documentation and README finalization
 ```
 
@@ -654,11 +654,11 @@ The workflow provides a clear and traceable development process:
 
 ```text
 feature/*
-   ¿
+   â†“
   dev
-   ¿
+   â†“
  main
-   ¿
+   â†“
 release
 ```
 
